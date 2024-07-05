@@ -10,5 +10,13 @@ public interface CategoriaService {
     
     public List<Categoria> getCategorias (boolean activos);
     
+    //Se obtiene una categoria por medio de su id
+    public Categoria getCategoria(Categoria categoria);
+    
+    //Metodo de guardar 
+    public void save(Categoria categoria);
+    
+    //Metodo de eliminar
+    public void delete(Categoria categoria);
     
 }
