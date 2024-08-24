@@ -1,6 +1,7 @@
 package com.tienda.service.impl;
 
 import com.tienda.dao.ProductoDao;
+import com.tienda.domain.Item;
 import com.tienda.domain.Producto;
 import com.tienda.service.ProductoService;
 import org.springframework.transaction.annotation.Transactional;
@@ -10,7 +11,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 @Service
-public class ProductoServiceImpl implements ProductoService {
+public abstract class ProductoServiceImpl implements ProductoService {
 
     @Autowired
     private ProductoDao productoDao;
@@ -25,9 +26,9 @@ public class ProductoServiceImpl implements ProductoService {
         return lista;
     }
 
-    @Override
+    
     @Transactional(readOnly = true)
-    public Producto getProducto(Producto producto) {
+    public Producto getProducto(Item producto) {
         return productoDao.findById(producto.getIdProducto()).orElse(null);
     }
 
